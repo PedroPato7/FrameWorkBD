@@ -8,7 +8,7 @@ public interface Conexao {
 
 	Connection connect() throws SQLException;
 	void disconnect(Connection connection) throws SQLException;
-	
+	void executeUpdate(String query) throws SQLException;
 	
 	
 	/*

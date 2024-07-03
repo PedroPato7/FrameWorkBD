@@ -1,6 +1,7 @@
 package com.meu.framework.connection;
 
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -26,4 +27,12 @@ public class MinhaConexao implements Conexao {
 			connection.close();
 		}
 	}
+	
+	public void executeUpdate(String query) throws SQLException {
+        try (Connection connection = connect();
+             Statement statement = connection.createStatement()) {
+            statement.executeUpdate(query);
+        }
+    }
+	
 }
